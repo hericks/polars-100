@@ -6,6 +6,8 @@ This is a collection of polars exercises of polars exercises that have been on s
 
 The keyed text format (`ktx`) is a minimal human readable key-values to store text (markdown or others) indexed by keys. 
 
+**Disclaimer.** This project is still in its early stages, and the exercises are not yet complete. If you would like to contribute, please feel free to open a pull request.
+
 ### Variants for other libraries
 
 - **Numpy.** [100 Numpy Exercises](https://github.com/rougier/numpy-100) (inspired this project!)
