@@ -1,13 +1,13 @@
-from src.generate import QHA
+from src.generate import QDHA
 
 
 def question(n):
-    print(f"{n}. " + QHA[f"q{n}"])
+    print(f"{n}. " + QDHA[f"q{n}"])
 
 
 def hint(n):
-    print(QHA[f"h{n}"])
+    print(QDHA[f"h{n}"])
 
 
 def answer(n):
-    print(QHA[f"a{n}"])
+    print(QDHA[f"a{n}"])

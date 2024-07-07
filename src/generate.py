@@ -35,7 +35,7 @@ def dict_to_ktx(input_dict, output_file, keystarter="<"):
 
 
 HEADERS = ktx_to_dict(os.path.join("src", "data", "headers.ktx"))
-QHA = ktx_to_dict(os.path.join("src", "data", "exercises100.ktx"))
+QDHA = ktx_to_dict(os.path.join("src", "data", "exercises100.ktx"))
 
 
 def create_jupyter_notebook(destination_filename="100_polars_exercises.ipynb"):
@@ -58,8 +58,13 @@ def create_jupyter_notebook(destination_filename="100_polars_exercises.ipynb"):
 
     # Add questions and empty spaces for answers
     n = 1
-    while f"q{n}" in QHA:
-        nb["cells"].append(nbf.v4.new_markdown_cell(f"#### {n}. " + QHA[f"q{n}"]))
+    while f"q{n}" in QDHA:
+        nb["cells"].append(nbf.v4.new_markdown_cell(f"#### {n}. " + QDHA[f"q{n}"]))
+
+        if f"d{n}" in QDHA:
+            nb["cells"].append(nbf.v4.new_code_cell(QDHA[f"d{n}"]))
+
+
         nb["cells"].append(nbf.v4.new_code_cell(""))
         n += 1
 
