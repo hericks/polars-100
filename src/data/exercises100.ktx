@@ -28,3 +28,14 @@ hint: pl.Series
 < a3
 nums = pl.Series("nums", range(10))
 nums
+
+
+< q4
+Find the (estimated) memory size of a series or DataFrame. (★☆☆)
+
+< h4
+hint: pl.Series.estimated_size, pl.DataFrame.estimated_size
+
+< a4
+nums = pl.Series(range(10))
+nums.estimated_size()
