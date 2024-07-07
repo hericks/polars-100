@@ -31,11 +31,25 @@ nums
 
 
 < q4
-Find the (estimated) memory size of a series or DataFrame. (★☆☆)
+Create a dataframe with columns "nums" and "bools" of integers and boolean values. (★☆☆)
 
 < h4
-hint: pl.Series.estimated_size, pl.DataFrame.estimated_size
+hint: pl.DataFrame
 
 < a4
+df = pl.DataFrame({
+    "nums": range(3),
+    "bools": [True, True, False],
+})
+df
+
+
+< q5
+Find the (estimated) memory size of a series or DataFrame. (★☆☆)
+
+< h5
+hint: pl.Series.estimated_size, pl.DataFrame.estimated_size
+
+< a5
 nums = pl.Series(range(10))
 nums.estimated_size()
