@@ -1,6 +1,6 @@
 # 100 Polars Exercises
 
-This is a collection of polars exercises of polars exercises that have been on stack overflow and the polars documentation. The project is heavily inspired by [numpy-100](https://github.com/rougier/numpy-100), which is a similar collection of numpy exercises. The goal of this collection is to offer a quick reference for both old and new users but also to provide a set of exercises for those who teach. 
+This is a collection of polars exercises that have been collected on stack overflow and the polars documentation. The project is heavily inspired by [numpy-100](https://github.com/rougier/numpy-100), which is a similar collection of numpy exercises. The goal of this collection is to offer a quick reference for both old and new users but also to provide a set of exercises for those who teach.
 
 **Note.** Jupyter notebooks are created programmatically from the source data in `src/data/exercises.ktx`. To modify the content of these files, please change the text in the source and run the `src/generator.py` with a python interpreter from the root directoy of this project with the libraries under `requirements.txt` installed.
 
