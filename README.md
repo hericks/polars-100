@@ -12,6 +12,7 @@ The keyed text format (`ktx`) is a minimal human readable key-values to store te
 
 **Current progress.**
 
+
 ![](https://geps.dev/progress/10)
 
 ### Variants for other libraries
