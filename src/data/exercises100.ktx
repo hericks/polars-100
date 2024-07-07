@@ -1,8 +1,30 @@
 < q1
-Import the polars package under the name `pl` (★☆☆)
+Import the polars package under the name `pl`. (★☆☆)
 
 < h1
 hint: import … as
 
 < a1
 import polars as pl
+
+
+< q2
+Print the polars version and the configuration. (★☆☆)
+
+< h2
+hint: pl.show_versions, pl.Config().state
+
+< a2
+pl.show_versions()
+pl.Config().state()
+
+
+< q3
+Create a series named "nums" with intergers ranging from 0 to 9. (★☆☆)
+
+< h3
+hint: pl.Series
+
+< a3
+nums = pl.Series("nums", range(10))
+nums
