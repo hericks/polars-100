@@ -2,7 +2,7 @@ import os
 import nbformat as nbf
 
 
-def ktx_to_dict(input_file, keystarter="<", commentstarter="#"):
+def ktx_to_dict(input_file, keystarter="<", commentstarter="---"):
     """Parse keyed text to python dictionary."""
     answer = dict()
 
