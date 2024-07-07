@@ -9,7 +9,7 @@ import polars as pl
 
 
 < q2
-Print the polars version and the configuration. (★☆☆)
+Print the polars version and configuration. (★☆☆)
 
 < h2
 hint: pl.show_versions, pl.Config().state
