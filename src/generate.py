@@ -2,7 +2,7 @@ import os
 import nbformat as nbf
 
 
-def ktx_to_dict(input_file, keystarter="<"):
+def ktx_to_dict(input_file, keystarter="<", commentstarter="#"):
     """Parse keyed text to python dictionary."""
     answer = dict()
 
@@ -11,6 +11,9 @@ def ktx_to_dict(input_file, keystarter="<"):
 
     k, val = "", ""
     for line in lines:
+        if line.startswith(commentstarter):
+            continue
+
         if line.startswith(keystarter):
             k = line.replace(keystarter, "").strip()
             val = ""
