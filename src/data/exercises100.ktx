@@ -1,3 +1,4 @@
+# --- Basics
 < q1
 Import the polars package under the name `pl`. (★☆☆)
 
@@ -53,3 +54,54 @@ hint: pl.Series.estimated_size, pl.DataFrame.estimated_size
 < a5
 nums = pl.Series(range(10))
 nums.estimated_size()
+
+
+< q6
+Add a new column "value" with value 1.0 to the dataframe `df`. (★☆☆)
+
+< d6
+df = pl.DataFrame({
+    "name": ["Tim", "Struppi", "Haddock"],
+})
+
+< h6
+hint: pl.DataFrame.with_columns, pl.lit
+
+< a6
+df.with_columns(
+    pl.lit(1.0).alias("value")
+)
+
+
+< q7
+Add series `age` as new column to the dataframe `df`. (★☆☆)
+
+< d7
+df = pl.DataFrame({
+    "name": ["Tim", "Struppi", "Haddock"],
+})
+
+age = pl.Series("age", [23, 4, 45])
+
+< h7
+hint: pl.DataFrame.with_columns, pl.lit
+
+< a7
+df.with_columns(age)
+
+
+< q8
+Peek at the first 15 rows of the dataframe `df`. (★☆☆)
+
+< d8
+import random
+
+df = pl.DataFrame({
+    "value": [random.normalvariate() for _ in range(250)]
+})
+
+< h8
+hint: pl.DataFrame.head
+
+< a8
+df.head(15)
