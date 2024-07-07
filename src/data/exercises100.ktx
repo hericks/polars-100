@@ -1,0 +1,8 @@
+< q1
+Import the polars package under the name `pl` (★☆☆)
+
+< h1
+hint: import … as
+
+< a1
+import polars as pl
