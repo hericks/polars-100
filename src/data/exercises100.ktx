@@ -2,6 +2,8 @@
 < q1
 Import the polars package under the name `pl`. (★☆☆)
 
+**Note.** The import is required for all subsequent questions.
+
 < h1
 hint: import … as
 
