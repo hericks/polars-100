@@ -48,7 +48,7 @@ df
 
 
 < q5
-Find the (estimated) memory size of a series or DataFrame. (★☆☆)
+Find the (estimated) memory size of a series or dataframe. (★☆☆)
 
 < h5
 hint: pl.Series.estimated_size, pl.DataFrame.estimated_size
@@ -93,7 +93,7 @@ df.with_columns(age)
 
 
 < q8
-Peek at the first 15 rows of the dataframe `df`. (★☆☆)
+Peek at the first 10 rows of the dataframe `df`. (★☆☆)
 
 < d8
 import random
@@ -106,4 +106,38 @@ df = pl.DataFrame({
 hint: pl.DataFrame.head
 
 < a8
-df.head(15)
+df.head(10)
+
+
+< q9
+Reorder the columns of the dataframe `df`. (★☆☆) 
+
+< d9
+df = pl.DataFrame({
+    "is_dog": [False, True, False],
+    "age": [23, 4, 45],
+    "name": ["Tim", "Struppi", "Haddock"],
+})
+
+< h9
+hint: pl.DataFrame.select
+
+< a9
+df.select("name", "age", "is_dog")
+
+
+< q10
+Filter the dataframe `df` for humans of age 23. (★☆☆)
+
+< d10
+df = pl.DataFarme({
+    "is_dog": [False, True, False],
+    "age": [23, 4, 45],
+    "name": ["Tim", "Struppi", "Haddock"],
+})
+
+< h10
+hint: pl.DataFrame.filter, expressions can be negated with ~
+
+< a10
+df.filter(~pl.col("is_dog), pl.col("age") == 23)
