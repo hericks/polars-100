@@ -10,10 +10,10 @@ The keyed text format (`ktx`) is a minimal human readable key-values to store te
 
 **Disclaimer.** This project is still in its early stages, and the exercises are not yet complete. If you would like to contribute, please feel free to open a pull request.
 
-**Current progress.** *(not automatically updated)* 10 / 100 exercises
+**Current progress.** *(not automatically updated)* 11 / 100 exercises
 
 
-![](https://geps.dev/progress/10)
+![](https://geps.dev/progress/11)
 
 ### Variants for other libraries
 
