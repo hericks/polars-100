@@ -110,34 +110,51 @@ df.head(10)
 
 
 < q9
-Reorder the columns of the dataframe `df`. (★☆☆) 
+Print the number of rows in the dataframe `df`. (★☆☆) 
 
 < d9
+import random
+
+df = pl.DataFrame({
+    "value": [random.normalvariate() for _ in range(42)]
+})
+
+< h9
+hint: pl.DataFrame.height
+
+< a9
+df.height
+
+
+< q10
+Reorder the columns of the dataframe `df`. (★☆☆) 
+
+< d10
 df = pl.DataFrame({
     "is_dog": [False, True, False],
     "age": [23, 4, 45],
     "name": ["Tim", "Struppi", "Haddock"],
 })
 
-< h9
+< h10
 hint: pl.DataFrame.select
 
-< a9
+< a10
 df.select("name", "age", "is_dog")
 
 
-< q10
+< q11
 Filter the dataframe `df` for humans of age 23. (★☆☆)
 
-< d10
+< d11
 df = pl.DataFarme({
     "is_dog": [False, True, False],
     "age": [23, 4, 45],
     "name": ["Tim", "Struppi", "Haddock"],
 })
 
-< h10
+< h11
 hint: pl.DataFrame.filter, expressions can be negated with ~
 
-< a10
+< a11
 df.filter(~pl.col("is_dog), pl.col("age") == 23)
