@@ -147,7 +147,7 @@ df.select("name", "age", "is_dog")
 Filter the dataframe `df` for humans of age 23. (★☆☆)
 
 < d11
-df = pl.DataFarme({
+df = pl.DataFrame({
     "is_dog": [False, True, False],
     "age": [23, 4, 45],
     "name": ["Tim", "Struppi", "Haddock"],
