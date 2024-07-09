@@ -168,7 +168,7 @@ Compare the dataframes `df1` and `df2` for equality. (★☆☆)
 < d12
 df1 = df2 = pl.DataFrame({
     "test": ["One-sample t", "Chi-squared", "Paired t", "Kolmogorov-Smirnov", "Mann-Whitney U"],
-    "p-value": [0.14, None, 0.02, 0.67, 0.42],
+    "p_value": [0.14, None, 0.02, 0.67, 0.42],
 })
 
 < h12
@@ -176,3 +176,19 @@ hint: pl.DataFrame.equals
 
 < a12
 df1.equals(df2)
+
+
+< q13
+For each unique value of `count`, select the first row in `df`. (★☆☆)
+
+< d13
+df = pl.DataFrame({
+    "count": [2, 2, 3, 5, 5, 5],
+    "name": ["Alice", "Bob", "Carol", "Carlos", "Charlie", "Eve"],
+})
+
+< h13
+hint: pl.DataFrame.unique
+
+< a13
+df.unique(subset="count", keep="first")
