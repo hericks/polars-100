@@ -158,3 +158,21 @@ hint: pl.DataFrame.filter, expressions can be negated with ~
 
 < a11
 df.filter(~pl.col("is_dog), pl.col("age") == 23)
+
+
+< q12
+Compare the dataframes `df1` and `df2` for equality. (★☆☆)
+
+**Note.** The result should return `True` as a single python `bool`.
+
+< d12
+df1 = df2 = pl.DataFrame({
+    "test": ["One-sample t", "Chi-squared", "Paired t", "Kolmogorov-Smirnov", "Mann-Whitney U"],
+    "p-value": [0.14, None, 0.02, 0.67, 0.42],
+})
+
+< h12
+hint: pl.DataFrame.equals
+
+< a12
+df1.equals(df2)
