@@ -192,3 +192,40 @@ hint: pl.DataFrame.unique
 
 < a13
 df.unique(subset="count", keep="first")
+
+
+--- Config settings
+< d14
+Print the dataframe `df`, such that all rows are visible.
+
+< d14
+from random import normalvariate
+
+df = pl.DataFrame({
+    "index": range(20)
+})
+
+< h14
+hint: pl.Config().set_tbl_rows()
+
+< a14
+with pl.Config() as cfg:
+   cfg.set_tbl_rows(-1)
+   print(df)
+
+
+< d15
+Print the dataframe `df`, such that all list element are visible.
+
+< d15
+df = pl.DataFrame({
+    "name_lists": [list("Alice"), list("Bob"), list("Charlie")]
+})
+
+< h15
+hint: pl.Config().set_fmt_table_cell_list_len
+
+< a15
+with pl.Config() as cfg:
+    cfg.set_fmt_table_cell_list_len(-1)
+    print(df)
