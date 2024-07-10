@@ -196,7 +196,7 @@ df.unique(subset="count", keep="first")
 
 --- Config settings
 < d14
-Print the dataframe `df`, such that all rows are visible.
+Print the dataframe `df`, such that all rows are visible. (★☆☆)
 
 < d14
 from random import normalvariate
@@ -215,7 +215,7 @@ with pl.Config() as cfg:
 
 
 < d15
-Print the dataframe `df`, such that all list element are visible.
+Print the dataframe `df`, such that all list element are visible. (★☆☆)
 
 < d15
 df = pl.DataFrame({
