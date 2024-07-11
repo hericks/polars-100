@@ -96,10 +96,8 @@ df.with_columns(age)
 Peek at the first 10 rows of the dataframe `df`. (★☆☆)
 
 < d8
-import random
-
 df = pl.DataFrame({
-    "value": [random.normalvariate() for _ in range(250)]
+    "index": range(250)
 })
 
 < h8
@@ -113,10 +111,8 @@ df.head(10)
 Print the number of rows in the dataframe `df`. (★☆☆) 
 
 < d9
-import random
-
 df = pl.DataFrame({
-    "value": [random.normalvariate() for _ in range(42)]
+    "index": range(42)
 })
 
 < h9
@@ -127,7 +123,7 @@ df.height
 
 
 < q10
-Reorder the columns of the dataframe `df`. (★☆☆) 
+Reorder the columns of the dataframe `df` to `"name"`, `"age"`, and `"is_dog"`. (★☆☆) 
 
 < d10
 df = pl.DataFrame({
@@ -195,12 +191,10 @@ df.unique(subset="count", keep="first")
 
 
 --- Config settings
-< d14
+< q14
 Print the dataframe `df`, such that all rows are visible. (★☆☆)
 
 < d14
-from random import normalvariate
-
 df = pl.DataFrame({
     "index": range(20)
 })
@@ -214,7 +208,7 @@ with pl.Config() as cfg:
    print(df)
 
 
-< d15
+< q15
 Print the dataframe `df`, such that all list element are visible. (★☆☆)
 
 < d15
