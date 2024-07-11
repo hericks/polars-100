@@ -224,7 +224,7 @@ with pl.Config() as cfg:
     cfg.set_fmt_table_cell_list_len(-1)
     print(df)
 
---- 
+
 < q16
 Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★☆)
 
@@ -245,5 +245,35 @@ hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
             pl.col("vector").explode() * pl.col("scalar")
         )
         .implode().over(pl.int_range(pl.len()))
+    )
+)
+
+
+< q17
+Compute bootstrapped 95% confidence intervals for the mean of the `"value"` column (i.e., resample the elements of the column with replacement N times, compute the mean of each sample, and then compute percentiles over the means).
+
+< d17
+import random
+
+df = pl.DataFrame({
+    "value": [random.normalvariate(mu=2, sigma=0.5)**2 for _ in range(100)]
+})
+
+< h17
+hint: pl.Expr.sample, pl.Expr.quantile
+
+< a17
+N = 100_000
+(
+    df
+    .select(
+        pl.col("value").sample(N * pl.len(), with_replacement=True),
+    )
+    .with_row_index()
+    .group_by(pl.col("index").mod(N))
+    .mean()
+    .select(
+        pl.col("value").quantile(0.025).alias("lower"),
+        pl.col("value").quantile(0.975).alias("upper"),
     )
 )
