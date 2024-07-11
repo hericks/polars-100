@@ -223,3 +223,27 @@ hint: pl.Config().set_fmt_table_cell_list_len
 with pl.Config() as cfg:
     cfg.set_fmt_table_cell_list_len(-1)
     print(df)
+
+--- 
+< q16
+Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★☆)
+
+< d16
+df = pl.DataFrame({
+    "scalar": [1., 2., 3.],
+    "vector": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
+})
+
+< h16
+hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
+
+< a16
+(
+    df_test
+    .with_columns(
+        (
+            pl.col("vector").explode() * pl.col("scalar")
+        )
+        .implode().over(pl.int_range(pl.len()))
+    )
+)
