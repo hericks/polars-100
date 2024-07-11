@@ -250,7 +250,7 @@ hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 
 
 < q17
-Compute bootstrapped 95% confidence intervals for the mean of the `"value"` column (i.e., resample the elements of the column with replacement N times, compute the mean of each sample, and then compute percentiles over the means).
+Compute bootstrapped 95% confidence intervals for the mean of the `"value"` column (i.e., resample the elements of the column with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
 
 < d17
 import random
