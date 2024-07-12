@@ -224,20 +224,32 @@ with pl.Config() as cfg:
     cfg.set_fmt_table_cell_list_len(-1)
     print(df)
 
-
 < q16
-Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★☆)
+Create a series with all dates corresponding to the month of July 2016. (★★☆)
 
-< d16
+< h16
+hint: pl.date_range
+
+< a16
+from datetime import date
+
+start, end = date(2016, 7, 1), date(2016, 8, 1)
+dates = pl.date_range(start, end, interval="1d", eager=True, closed="left")
+
+
+< q17
+Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★★)
+
+< d17
 df = pl.DataFrame({
     "scalar": [1., 2., 3.],
     "vector": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
 })
 
-< h16
+< h17
 hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 
-< a16
+< a17
 (
     df_test
     .with_columns(
@@ -249,20 +261,20 @@ hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 )
 
 
-< q17
+< q18
 Compute bootstrapped 95% confidence intervals for the mean of the `"value"` column (i.e., resample the elements of the column with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
 
-< d17
+< d18
 import random
 
 df = pl.DataFrame({
     "value": [random.normalvariate(mu=2, sigma=0.5)**2 for _ in range(100)]
 })
 
-< h17
+< h18
 hint: pl.Expr.sample, pl.Expr.quantile
 
-< a17
+< a18
 N = 100_000
 (
     df
