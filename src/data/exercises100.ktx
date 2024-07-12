@@ -190,66 +190,79 @@ hint: pl.DataFrame.unique
 df.unique(subset="count", keep="first")
 
 
---- Config settings
 < q14
+Create a dataframe with columns `name` and `age`. Each column should contain three unique values. The dataframe should have a row for each combination. (★☆☆)
+
+< h14
+hint: pl.DataFrame.join
+
+< a14
+names = pl.DataFrame(["Huey", "Dewey", "Louie"], schema=["name"])
+ages = pl.DataFrame([10, 11, 12], schema=["age"])
+
+names.join(ages, how="cross")
+
+
+--- Config settings
+< q15
 Print the dataframe `df`, such that all rows are visible. (★☆☆)
 
-< d14
+< d15
 df = pl.DataFrame({
     "index": range(20)
 })
 
-< h14
+< h15
 hint: pl.Config().set_tbl_rows()
 
-< a14
+< a15
 with pl.Config() as cfg:
-   cfg.set_tbl_rows(-1)
-   print(df)
+    cfg.set_tbl_rows(-1)
+    print(df)
 
 
-< q15
+< q16
 Print the dataframe `df`, such that all list element are visible. (★☆☆)
 
-< d15
+< d16
 df = pl.DataFrame({
     "name_lists": [list("Alice"), list("Bob"), list("Charlie")]
 })
 
-< h15
+< h16
 hint: pl.Config().set_fmt_table_cell_list_len
 
-< a15
+< a16
 with pl.Config() as cfg:
     cfg.set_fmt_table_cell_list_len(-1)
     print(df)
 
-< q16
+< q17
 Create a series with all dates corresponding to the month of July 2016. (★★☆)
 
-< h16
+< h17
 hint: pl.date_range
 
-< a16
+< a17
 from datetime import date
 
 start, end = date(2016, 7, 1), date(2016, 8, 1)
 dates = pl.date_range(start, end, interval="1d", eager=True, closed="left")
 
 
-< q17
+< q18
 Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★★)
 
-< d17
+< d18
 df = pl.DataFrame({
     "scalar": [1., 2., 3.],
     "vector": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
 })
 
-< h17
+< h18
 hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 
-< a17
+< a18
 (
     df_test
     .with_columns(
@@ -261,20 +274,20 @@ hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 )
 
 
-< q18
+< q19
 Compute bootstrapped 95% confidence intervals for the mean of the `"value"` column (i.e., resample the elements of the column with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
 
-< d18
+< d19
 import random
 
 df = pl.DataFrame({
     "value": [random.normalvariate(mu=2, sigma=0.5)**2 for _ in range(100)]
 })
 
-< h18
+< h19
 hint: pl.Expr.sample, pl.Expr.quantile
 
-< a18
+< a19
 N = 100_000
 (
     df
