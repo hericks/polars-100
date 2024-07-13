@@ -278,20 +278,38 @@ hint: pl.Expr.cut
     )
 )
 
-
 < q19
-Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★★)
+Add a columns `cum_cost`, `cum_profit`, and `cum_quantity` of cumulative cost, profit, and quantity to `df`.
 
 < d19
+df = pl.DataFrame({
+    "cost": [1.0, 1.0, 1.2, 1.2, 1.5],
+    "profit": [1.5, 2.5, 1.2, 0.1, 0.3],
+    "quantity": [1, 2, 2, 5, 3],
+})
+
+< h19
+hint: pl.Expr.cum_sum, pl.Expr.name.prefix
+
+< a19
+df.with_columns(
+    pl.col("cost", "profit", "quantity").cum_sum().name.prefix("cum_")
+)
+
+
+< q20
+Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★★)
+
+< d20
 df = pl.DataFrame({
     "scalar": [1., 2., 3.],
     "vector": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
 })
 
-< h19
+< h20
 hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 
-< a19
+< a20
 (
     df_test
     .with_columns(
@@ -303,20 +321,20 @@ hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 )
 
 
-< q20
+< q21
 Compute bootstrapped 95% confidence intervals for the mean of the `"value"` column (i.e., resample the elements of the column with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
 
-< d20
+< d21
 import random
 
 df = pl.DataFrame({
     "value": [random.normalvariate(mu=2, sigma=0.5)**2 for _ in range(100)]
 })
 
-< h20
+< h21
 hint: pl.Expr.sample, pl.Expr.quantile
 
-< a20
+< a21
 N = 100_000
 (
     df
