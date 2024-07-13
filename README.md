@@ -13,7 +13,7 @@ The keyed text format (`ktx`) is a minimal human readable key-values to store te
 **Current progress.** *(not automatically updated)* 21 / 100 exercises
 
 
-![](https://geps.dev/progress/20)
+![](https://geps.dev/progress/21)
 
 ### Variants for other libraries
 
