@@ -251,18 +251,47 @@ dates = pl.date_range(start, end, interval="1d", eager=True, closed="left")
 
 
 < q18
-Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★★)
+Based on the `bmi` column, add a `bmi_label` column to `df`.
+
+The `bmi_label` column should equal
+- `"underweight"` if BMI < 18.5
+- `"normal weight"` if 18.5 <= BMI < 25
+- `"overweight"` if 25 <= BMI < 30
+- `"obese"` if 30 <= BMI
 
 < d18
+df = pl.DataFrame({"bmi": [19.4, 17.2, 25.0, 18.0, 27.2, 20.7, 31.2]})
+
+< h18
+hint: pl.Expr.cut
+
+< a18
+(
+    df.with_columns(
+        pl.col("bmi")
+        .cut(
+            [18.5, 25, 30],
+            labels=["underweight", "normal weight", "overweight", "obese"],
+            left_closed=True,
+        )
+        .alias("bmi_label")
+    )
+)
+
+
+< q19
+Perform an element-wise multiplication of the float column `"scalar"` and the list column `"vector"`. (★★★)
+
+< d19
 df = pl.DataFrame({
     "scalar": [1., 2., 3.],
     "vector": [[1, 2, 3], [4, 5, 6], [7, 8, 9]],
 })
 
-< h18
+< h19
 hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 
-< a18
+< a19
 (
     df_test
     .with_columns(
@@ -274,20 +303,20 @@ hint: pl.Expr.explode, pl.Expr.implode, pl.Expr.over
 )
 
 
-< q19
+< q20
 Compute bootstrapped 95% confidence intervals for the mean of the `"value"` column (i.e., resample the elements of the column with replacement N times, compute the mean of each sample, and then compute percentiles over the means). (★★★)
 
-< d19
+< d20
 import random
 
 df = pl.DataFrame({
     "value": [random.normalvariate(mu=2, sigma=0.5)**2 for _ in range(100)]
 })
 
-< h19
+< h20
 hint: pl.Expr.sample, pl.Expr.quantile
 
-< a19
+< a20
 N = 100_000
 (
     df
